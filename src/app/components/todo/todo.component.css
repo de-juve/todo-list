@@ -1,0 +1,18 @@
+.todo {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 25px 0;
+    background-color: #fafafa;
+}
+
+.todo-control {
+    display: flex;
+    justify-content: center;
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,88 @@
+
+.todo-view {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+.todo-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    /*    padding: 0 15px;*/
+}
+.todo-view-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 15px;
+}
+.todo-actions {
+    display: flex;
+    justify-content: flex-end;
+    paddin: 5px;
+}
+.selected {
+    color: #bfc1cb;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+input {
+    line-height: normal;
+}
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+[type=radio]:checked, [type=radio]:not(:checked) {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+label {
+    font-size: .8rem;
+    display: inline-block;
+    max-width: 100%;
+    color: #888;
+}
+
+
+
+/*
+input[type="checkbox"] {
+    display: none;
+}
+label {
+    border: 3px solid #50e3a4;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 22px;
+    position: relative;
+    width: 22px;
+    margin-left: 15px;
+}
+label::before {
+    background: #50e3a4;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    left: calc(50%);
+    position: absolute;
+    top: calc(50%);
+    opacity: 0;
+}
+input[type="checkbox"]:checked + label:before {
+    height: 30px;
+    width: 30px;
+    left: calc(50% - 15px);
+    top: calc(50% - 15px);
+    opacity: 1;
+}
+*/

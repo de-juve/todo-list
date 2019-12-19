@@ -1,0 +1,21 @@
+<div class="todo-view">
+    <div>
+        <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class="example-radio-group" [ngModel]="isFinishing" >
+            <mat-radio-button  (click)="done.emit(todo)"></mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="todo-text" [class.selected]="isFinishing">
+        <span class="text-overflow " >{{todo.name}}</span>
+        <span class="bold small m-l-10 m-r-5" style="line-height: 1.3">{{todo.date|date: 'dd.MM.yyyy'}}</span>
+    </div>
+    <div class="todo-view-actions" >
+        <a class="st5 m-l-5" [class.hide]="isFinishing"><mat-icon class="blue hover" (click)="edit.emit(todo)">edit</mat-icon></a>
+    </div>
+
+</div>
+<a class="blink m-t-10 p-a-10 blue hover"
+   *ngIf="isFinishing"
+   (click)="cancelDone.emit(todo.id)">отменить</a>
+

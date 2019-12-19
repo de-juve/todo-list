@@ -1,0 +1,86 @@
+<div class="block">
+
+    <div class="main-title">
+        <div>Задачи</div>
+        <a class="st4" (click)="onShowAdd()"><mat-icon class="blue hover" [class.disabled]="!!todo" >add</mat-icon></a>
+    </div>
+
+    <div class="list">
+        <ul cdkDropList
+            [cdkDropListData]="list"
+            (cdkDropListDropped)="drop($event)">
+            <li *ngIf="showAdd">
+                <dmb-todo (save)="onAdd($event)"
+                          (cancel)="onHideAdd()"
+                ></dmb-todo>
+            </li>
+            <ng-container *ngFor="let item of list; trackBy: trackById">
+                <li *ngIf="item.id !== todo?.id; else showEditTodo"
+                    [ngClass]="{
+                        'orange': isSoon(item),
+                        'red': isPast(item)
+                    }"
+                    cdkDrag
+                    [cdkDragData]="item">
+                    <dmb-todo-view [todo]="item"
+                                   [isFinishing]="timerIds.has(item.id)"
+                                   (done)="onCheckTodo($event)"
+                                   (cancelDone)="onCancelDone($event)"
+                                   (edit)="onEdit($event)"
+                    ></dmb-todo-view>
+                </li>
+                <ng-template #showEditTodo>
+                    <dmb-todo [todo]="item"
+                              (save)="onSave($event)"
+                              (cancel)="onEdit(null)"
+                    ></dmb-todo>
+                </ng-template>
+            </ng-container>
+        </ul>
+    </div>
+
+    <!--<a class="btn" (click)="onShowAdd()"></a>-->
+</div>
+<!--<div class="flex-bottom-nowrap">
+    <div class="col-nogrow">
+        <label>Подключенные датчики</label>
+    </div>
+    <div class="col-nogrow" *ngIf="canAdd">
+        <a class="blue hover st4" (click)="onShowAdd()">
+            <mat-icon [class.disabled]="showAdd" style="vertical-align:middle;">add</mat-icon>
+            &lt;!&ndash;<span class="fa fa-plus st4" [class.disabled]="showAdd"></span>&ndash;&gt;
+        </a>
+    </div>
+</div>
+<div class=" m-b-10">
+
+    <div  class="bg-white"
+          cdkDropList
+          [cdkDropListData]="list"
+          (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of list; trackBy: trackById"
+             class="flex-middle-ng relative"
+             cdkDrag
+             [cdkDragData]="item">
+            <div class="drop-placeholder" *cdkDragPlaceholder></div>
+            <div>
+                <label><input class="with-gap" type="radio"><span></span></label>
+            </div>
+            <div class="col" style="text-decoration: none;">
+                <div class="flex-middle-ng">
+                    <div class="col m-r-5 text-overflow m-l&#45;&#45;5" style="width: 220px;">
+                        {{item.name}}
+                    </div>
+                    <a class="st5 m-l-10">
+                        <mat-icon class="red hover" (click)="onRemove(item)">delete</mat-icon>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+
+

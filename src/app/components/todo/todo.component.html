@@ -1,0 +1,32 @@
+<form class="todo" [formGroup]="form">
+    <div class="todo-control">
+        <mat-form-field appearance="outline">
+            <mat-label>Название</mat-label>
+            <input matInput placeholder="Введите название" formControlName="name">
+        </mat-form-field>
+    </div>
+    <div class="todo-control">
+        <mat-form-field appearance="outline">
+            <mat-label>Описание</mat-label>
+            <input matInput placeholder="Введите описание" formControlName="comment">
+        </mat-form-field>
+    </div>
+    <div class="todo-control">
+        <mat-form-field appearance="outline"  style="width: 85%;">
+            <mat-label>Дата контроля</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Укажите дату контроля" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="todo-actions w-100">
+        <a (click)="onSave()"
+           class="st3 m-l-15">
+            <mat-icon class="green hover">check</mat-icon>
+        </a>
+        <a (click)="onCancel()"
+           class="st3 m-l-15">
+            <mat-icon class="gray hover">clear</mat-icon>
+        </a>
+    </div>
+</form>
